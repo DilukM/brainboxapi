@@ -1,6 +1,6 @@
 const bcryptjs = require("bcryptjs");
-const connection = require("../utils/DBConnection");
-const genarateToken = require("../utils/genarateToken");
+const connection = require("../utils/DBConnection").default;
+const genarateToken = require("../utils/genarateToken").default;
 
 const signup = async (req, res) => {
   try {

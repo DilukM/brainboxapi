@@ -1,10 +1,12 @@
+const express = require("express");
+const { required } = require("joi");
 const { login, signup, logout } = require("../controllers/auth.controller");
 const {
   validateFormLogin,
   validateForm,
 } = require("../middleware/Auth/AuthendicationValidation");
 
-const authRoute = require("express").Router();
+const authRoute = express.Router();
 
 authRoute.post("/registration", validateForm, signup);
 // authRoute.post("/registration",signup )

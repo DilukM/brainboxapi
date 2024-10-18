@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/api/auth", authRoute);
-app.get("/", (req, res) => {
+app.get("api/registration", (req, res) => {
   res.send("Hello World!");
 });
 
