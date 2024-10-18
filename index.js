@@ -14,6 +14,10 @@ app.use(cors());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.get("/abc", (req, res) => {
+  res.send("Hello, abc!");
+});
+
 app.use("/api/auth", authRoute);
 app.use("/", (req, res) => {
   res.send("Hello, World!");
