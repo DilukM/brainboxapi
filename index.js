@@ -8,24 +8,22 @@ const app = express();
 
 require("dotenv").config();
 
-app.use(
-  cors({
-    origin: ["https://esm-deploy.vercel.app"],
-    method: ["POST", "GET"],
-    credentials: true,
-  })
-);
-// app.use(express.json());
-// // Parse URL-encoded and JSON data
-// app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.get("/abc", (req, res) => {
+  res.send("Hello zbc!");
+});
 
-app.use("/api/auth", authRoute);
-app.get("api/registration", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
+app.use(cors());
+app.use(express.json());
+// // Parse URL-encoded and JSON data
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use("/api/auth", authRoute);
+
 
 app.listen(3000, () => {
   connection.connect(function (err) {
