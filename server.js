@@ -8,22 +8,16 @@ const app = express();
 
 require("dotenv").config();
 
-app.get("/abc", (req, res) => {
-  res.send("Hello zbc!");
-});
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
 app.use(cors());
-app.use(express.json());
+// app.use(express.json());
 // // Parse URL-encoded and JSON data
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use("/api/auth", authRoute);
-
+app.use("/", (req, res) => {
+  res.send("Hello, World!");
+});
 
 app.listen(3000, () => {
   connection.connect(function (err) {
