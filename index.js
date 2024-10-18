@@ -8,11 +8,19 @@ const app = express();
 
 require("dotenv").config();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://esm-deploy.vercel.app"],
+    method: ["POST", "GET"],
+    credentials: true,
+  })
+);
 // app.use(express.json());
 // // Parse URL-encoded and JSON data
 // app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/api/auth", authRoute);
 app.get("/", (req, res) => {
