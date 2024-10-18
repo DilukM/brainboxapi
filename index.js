@@ -15,6 +15,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/api/auth", authRoute);
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 app.listen(3000, () => {
   connection.connect(function (err) {
